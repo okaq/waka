@@ -65,6 +65,12 @@ var g = {
 		console.log("shall we play a game?");
 		
 		console.log(THREE);
+
+		// quad billboard render test
+		tea.init();
+		// remove 2d canvas panes
+		sce.deep();
+		// print debug 
 	}
 }
 // scene
@@ -91,6 +97,10 @@ var sce = {
 		console.log(e);
 		console.log(e.target.dataset.x);
 		// swtich
+	},
+	"deep": function() {
+		dom.remove(sce.a.c);
+		dom.remove(sce.b.c);
 	}
 }
 // xhr
@@ -108,6 +118,12 @@ var ren = {
 
 		sce.b.c.con.fillStyle = rgba.css([0,0,0,1.0]);
 		sce.b.c.con.fillRect(0,0,sce.b.c.can.width,sce.b.c.can.height);
+	}
+}
+// webgl
+var tea = {
+	"init": function() {
+		tea.a = {};
 	}
 }
    // dom
