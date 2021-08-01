@@ -67,9 +67,13 @@ var g = {
 		console.log(THREE);
 
 		// quad billboard render test
-		tea.init();
+	
 		// remove 2d canvas panes
 		sce.deep();
+
+		// webgl init
+		tea.init();
+
 		// print debug 
 	}
 }
@@ -124,6 +128,14 @@ var ren = {
 var tea = {
 	"init": function() {
 		tea.a = {};
+		tea.a.w = 1920;
+		tea.a.h = 1080;
+		tea.a.a = 32;
+		tea.b = new THREE.Scene();
+		tea.c = new THREE.PerspectiveCamera(75,tea.a.w/tea.a.h,0.1,1000);
+		tea.d = new THREE.WebGLRenderer();
+		tea.d.setSize(tea.a.w,tea.a.h);
+		dom.alpha.appendChild(tea.d.domElement);
 	}
 }
    // dom
