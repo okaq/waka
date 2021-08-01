@@ -74,6 +74,9 @@ var g = {
 		// webgl init
 		tea.init();
 
+		// draw cube mesh
+		tea.cube();
+
 		// print debug 
 	}
 }
@@ -136,6 +139,17 @@ var tea = {
 		tea.d = new THREE.WebGLRenderer();
 		tea.d.setSize(tea.a.w,tea.a.h);
 		dom.alpha.appendChild(tea.d.domElement);
+	},
+	"cube": function() {
+		tea.e = {};
+		tea.e.a = new THREE.BoxGeometry();
+		tea.e.b = new THREE.MeshBasicMaterial({color:0x00ff00});
+		tea.e.c = new THREE.Mesh(tea.e.a,tea.e.b);
+
+		tea.b.add(tea.e.c);
+		tea.c.position.z = 4.0;
+
+		tea.d.render(tea.b,tea.c);
 	}
 }
    // dom
