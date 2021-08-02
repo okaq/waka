@@ -143,8 +143,10 @@ var tea = {
 	"cube": function() {
 		tea.e = {};
 		tea.e.a = new THREE.BoxGeometry();
+		// tea.e.a.position = new THREE.Vector3(0,114,0);
 		tea.e.b = new THREE.MeshBasicMaterial({color:0x00ff00});
 		tea.e.c = new THREE.Mesh(tea.e.a,tea.e.b);
+		tea.e.c.position.set(0,2,0);
 
 		tea.b.add(tea.e.c);
 		tea.c.position.z = 4.0;
@@ -170,6 +172,9 @@ var tea = {
 			tea.g[i] = {};
 
 		}
+
+		// mesh
+		tea.h = [];
 	}
 }
    // dom
