@@ -150,6 +150,26 @@ var tea = {
 		tea.c.position.z = 4.0;
 
 		tea.d.render(tea.b,tea.c);
+	},
+	"field": function() {
+		// we can do an entire plane of rectangular cuboids
+		// grid of fixed depth and width, varying height
+
+		tea.f = {};
+		tea.f.w = 1024;
+		tea.f.h = 1024;
+		tea.f.a = 32;
+		tea.f.b = 32;
+		tea.f.c = (tea.f.w / tea.f.a) >>> 0;
+		tea.f.d = (tea.f.h / tea.f.b) >>> 0;
+		tea.f.e = (tea.f.c * tea.f.d) >>> 0;
+
+		// grid
+		tea.g = [];
+		for (let i = 0; i < tea.f.e; i++) {
+			tea.g[i] = {};
+
+		}
 	}
 }
    // dom
