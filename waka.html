@@ -170,11 +170,27 @@ var tea = {
 		tea.g = [];
 		for (let i = 0; i < tea.f.e; i++) {
 			tea.g[i] = {};
-
+			let a0 = i % tea.f.a;
+			let b0 = (i / tea.f.a) >>> 0;
+			let a1 = (a0 * tea.f.a) >>> 0;
+			let b1 = (b0 * tea.f.a) >>> 0;
+			tea.g[i].a = a1;
+			tea.g[i].b = b1;
+			tea.g[i].h = (Math.random() * 10) >>> 0;
 		}
 
 		// mesh
 		tea.h = [];
+		for (let i = 0; i < tea.f.e; i++) {
+			tea.h[i] = {};
+			tea.h[i].a = new THREE.BoxGeometry();
+			let c0 = [];
+			c0[0] = Math.random();
+			c0[1] = Math.random();
+			c0[2] = Math.random();
+			tea.h[i].b = new THREE.Color(c0[0],c0[1],c0[2]);
+			tea.h[i].c = new THREE.MeshBasicMaterial();
+		}
 	}
 }
    // dom
