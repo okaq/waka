@@ -78,6 +78,7 @@ var g = {
 		tea.cube();
 
 		// print debug 
+		tea.field();
 	}
 }
 // scene
@@ -183,13 +184,19 @@ var tea = {
 		tea.h = [];
 		for (let i = 0; i < tea.f.e; i++) {
 			tea.h[i] = {};
-			tea.h[i].a = new THREE.BoxGeometry();
+			tea.h[i].a = new THREE.BoxGeometry(tea.f.a,tea.f.b,tea.g[i].h);
 			let c0 = [];
 			c0[0] = Math.random();
 			c0[1] = Math.random();
 			c0[2] = Math.random();
 			tea.h[i].b = new THREE.Color(c0[0],c0[1],c0[2]);
 			tea.h[i].c = new THREE.MeshBasicMaterial();
+			// console.log(i,tea.h[i].c.color.getHex());
+			// tea.h[i].c.color.set(c0[0],c0[1],c0[2]);
+			tea.h[i].c.color.set(...c0);
+			tea.h[i].d = new THREE.Mesh(tea.h[i].a,tea.h[i].c);
+			tea.h[i].d.position.x = tea.g[i].a;
+			tea.h[i].d.position.y = tea.g[i].b;
 		}
 	}
 }
