@@ -87,6 +87,10 @@ var g = {
 
 		// clear scene
 		tea.cube2();
+
+		// infinite horizon
+		tea.plane();
+		tea.plane2();
 	}
 }
 // scene
@@ -214,6 +218,17 @@ var tea = {
 		tea.c.position.set(0,10,10);
 
 
+		tea.d.render(tea.b,tea.c);
+	},
+	"plane": function() {
+		tea.j = {};
+		tea.j.a = new THREE.PlaneGeometry(8,8);
+		tea.j.b = new THREE.MeshBasicMaterial();
+		// tea.j.b.color.set(0,0,Math.random());
+		tea.j.c = new THREE.Mesh(tea.j.a,tea.j.b);
+	},
+	"plane2": function() {
+		tea.b.add(tea.j.c);
 		tea.d.render(tea.b,tea.c);
 	}
 }
