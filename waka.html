@@ -78,7 +78,15 @@ var g = {
 		tea.cube();
 
 		// print debug 
-		tea.field();
+		// tea.field();
+
+		window.setTimeout(g.load3, 1000);
+	},
+	"load3": function() {
+		console.log("how about a nice game of chess?");
+
+		// clear scene
+		tea.cube2();
 	}
 }
 // scene
@@ -197,7 +205,16 @@ var tea = {
 			tea.h[i].d = new THREE.Mesh(tea.h[i].a,tea.h[i].c);
 			tea.h[i].d.position.x = tea.g[i].a;
 			tea.h[i].d.position.y = tea.g[i].b;
+			// tea.b.add(tea.h[i].d);
 		}
+		tea.d.render(tea.b,tea.c);
+	},
+	"cube2": function() {
+		tea.b.remove(tea.e.c);
+		tea.c.position.set(0,10,10);
+
+
+		tea.d.render(tea.b,tea.c);
 	}
 }
    // dom
