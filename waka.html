@@ -91,6 +91,24 @@ var g = {
 		// infinite horizon
 		tea.plane();
 		tea.plane2();
+
+		window.setTimeout(g.load4, 1000);
+	},
+	"load4": function() {
+		console.log("anim single");
+
+		g.tick = 0;
+		g.mat = 16;
+		g.id = window.setInterval(g.frame, 1000);
+	},
+	"frame": function() {
+		if (g.tick >= g.mat) {
+			console.log("anim done");
+			window.clearInterval(g.id);
+			return;
+		}
+		// update & render
+		g.tick = g.tick + 1;
 	}
 }
 // scene
@@ -215,7 +233,7 @@ var tea = {
 	},
 	"cube2": function() {
 		tea.b.remove(tea.e.c);
-		tea.c.position.set(0,10,10);
+		tea.c.position.set(0,-10,50);
 
 
 		tea.d.render(tea.b,tea.c);
@@ -224,7 +242,7 @@ var tea = {
 		tea.j = {};
 		tea.j.a = new THREE.PlaneGeometry(8,8);
 		tea.j.b = new THREE.MeshBasicMaterial();
-		// tea.j.b.color.set(0,0,Math.random());
+		tea.j.b.color = new THREE.Color(Math.random(),Math.random(),Math.random());
 		tea.j.c = new THREE.Mesh(tea.j.a,tea.j.b);
 	},
 	"plane2": function() {
