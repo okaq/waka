@@ -108,7 +108,13 @@ var g = {
 			return;
 		}
 		// update & render
+		tea.plane3();
 		g.tick = g.tick + 1;
+	},
+	"frame2": function() {
+		// anim state
+		// multiple concurrent frame updates
+		// mesh prop, begin, end, time
 	}
 }
 // scene
@@ -247,6 +253,13 @@ var tea = {
 	},
 	"plane2": function() {
 		tea.b.add(tea.j.c);
+		tea.d.render(tea.b,tea.c);
+	},
+	"plane3": function() {
+		let a0 = (g.tick / g.mat) * Math.PI / 2.0;
+		let m0 = new THREE.Euler(a0,0,0);
+		tea.j.c.rotation.set(m0);
+
 		tea.d.render(tea.b,tea.c);
 	}
 }
