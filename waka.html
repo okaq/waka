@@ -92,7 +92,8 @@ var g = {
 		tea.plane();
 		tea.plane2();
 
-		window.setTimeout(g.load4, 1000);
+		// window.setTimeout(g.load4, 1000);
+		window.setTimeout(g.load5, 1000);
 	},
 	"load4": function() {
 		console.log("anim single");
@@ -115,6 +116,15 @@ var g = {
 		// anim state
 		// multiple concurrent frame updates
 		// mesh prop, begin, end, time
+	},
+	"load5": function() {
+		console.log("fake phong");
+
+		// clear plane
+		tea.plane4();
+
+		// rand cube
+		tea.cube3();
 	}
 }
 // scene
@@ -261,6 +271,15 @@ var tea = {
 		tea.j.c.rotation.set(m0);
 
 		tea.d.render(tea.b,tea.c);
+	},
+	"plane4": function() {
+		tea.b.remove(tea.j.c);
+		tea.c.position.set(0,0,8);
+
+		tea.d.render)tea.b,tea.c);
+	},
+	"cube3": function() {
+		tea.k = {};
 	}
 }
    // dom
