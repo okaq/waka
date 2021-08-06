@@ -284,13 +284,26 @@ var tea = {
 		tea.k.b = new THREE.MeshPhongMaterial();
 		tea.k.b.color = new THREE.Color(Math.random(),Math.random(),Math.random());
 		tea.k.c = new THREE.Mesh(tea.k.a,tea.k.b);
-		tea.k.d = new THREE.Euler(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()* Math.PI);
+		tea.k.d = new THREE.Euler(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI);
 		// tea.k.d = new THREE.Euler(0.1,0,0);
 		tea.k.c.setRotationFromEuler(tea.k.d);
 		console.log(tea.k.c.rotation);
 		
-		tea.b.add(new THREE.AmbientLight(0xFFFFFF,1));
+		// lights
+		// tea.b.add(new THREE.AmbientLight(0xFFFFFF,1));
+		tea.k.e = [];
+		tea.k.e[0] = new THREE.DirectionalLight(0xFFFFFF,1);
+		tea.k.e[0].position.set(0,16,0);
+		tea.k.e[0].target.position.set(0,0,0);
+		tea.k.e[1] = new THREE.DirectionalLight(0xFFFFFF,1);
+		tea.k.e[1].position.set(0,-16,0);
+		tea.k.e[1].target.position.set(0,0,0);
+
 		tea.b.add(tea.k.c);
+		tea.b.add(tea.k.e[0]);
+		tea.b.add(tea.k.e[1]);
+		tea.b.add(tea.k.e[0].target);
+		tea.b.add(tea.k.e[1].target);
 
 		tea.d.render(tea.b,tea.c);
 	}
