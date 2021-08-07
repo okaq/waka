@@ -133,6 +133,9 @@ var g = {
 
 		// clear scene
 		tea.nook();
+
+		// add tower
+		tea.nook2();
 	}
 }
 // scene
@@ -320,6 +323,15 @@ var tea = {
 		tea.b = new THREE.Scene();
 
 		tea.d.render(tea.b,tea.c);
+	},
+	"nook2": function() {
+		tea.l = {};
+		tea.l.a = new BoxGeometry(1,16,1);
+		tea.l.b = new THREE.MeshPhongMaterial();
+		tea.l.b.color = new THREE.Color(Math.random(),Math.random(),Math.random());
+		tea.l.c = new THREE.Mesh(tea.l.a,tea.l.b);
+		tea.l.d = new Euler(0,0,0);
+		// set from rotation
 	}
 }
    // dom
