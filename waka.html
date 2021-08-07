@@ -125,6 +125,14 @@ var g = {
 
 		// rand cube
 		tea.cube3();
+
+		window.setTimeout(g.load6, 1000);
+	},
+	"load6": function() {
+		console.log("move piece");
+
+		// clear scene
+		tea.nook();
 	}
 }
 // scene
@@ -304,6 +312,12 @@ var tea = {
 		tea.b.add(tea.k.e[1]);
 		tea.b.add(tea.k.e[0].target);
 		tea.b.add(tea.k.e[1].target);
+
+		tea.d.render(tea.b,tea.c);
+	},
+	"nook": function() {
+		// fast clear
+		tea.b = new THREE.Scene();
 
 		tea.d.render(tea.b,tea.c);
 	}
