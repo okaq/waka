@@ -377,6 +377,20 @@ var tea = {
 		tea.l.c.position.set(a0,0,0);
 
 		tea.d.render(tea.b,tea.c);
+	},
+	"grid": function() {
+		tea.m = {};
+		tea.m.w = 1024;
+		tea.m.h = 1024;
+		tea.m.a = 32;
+		tea.m.b = 32;
+		tea.m.a0 = (tea.m.w / tea.m.a) >>> 0;
+		tea.m.b0 = (tea.m.h / tea.m.b) >>> 0;
+		tea.m.c = (tea.m.a0 * tea.m.b0) >>> 0;
+		tea.m.d = [];
+		for (let i = 0; i < tea.m.c; i++) {
+			tea.m.d[i] = {};
+		}
 	}
 }
    // dom
