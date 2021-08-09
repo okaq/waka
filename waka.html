@@ -388,8 +388,21 @@ var tea = {
 		tea.m.b0 = (tea.m.h / tea.m.b) >>> 0;
 		tea.m.c = (tea.m.a0 * tea.m.b0) >>> 0;
 		tea.m.d = [];
+		// color
+		let c0 = [];
+		c0[0] = Math.random();
+		c0[1] = Math.random();
+		c0[2] = Math.random();
+		let c1 = new THREE.Color(c0[0],c0[1],c0[2]);
+		// geometry
+		let g0 = new THREE.BoxGeometry(1,16,1);
+		// material
+		let m0 = new THREE.MeshPhongMaterial();
+		m0.color = c1;
 		for (let i = 0; i < tea.m.c; i++) {
 			tea.m.d[i] = {};
+			// one geometry, multiple meshes
+			tea.m.d[i].a = new THREE.Mesh(g0,m0);
 		}
 	}
 }
