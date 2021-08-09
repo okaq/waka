@@ -403,7 +403,16 @@ var tea = {
 			tea.m.d[i] = {};
 			// one geometry, multiple meshes
 			tea.m.d[i].a = new THREE.Mesh(g0,m0);
+			let a0 = i % tea.m.a;
+			let b0 = (i / tea.m.a) >>> 0;
+			let a1 = (a0 * tea.m.a) >>> 0;
+			let b1 = (b0 * tea.m.a) >>> 0;
+			tea.m.d[i].a.position.set(a0,0,b0);
 		}
+	},
+	"grid2": function() {
+		// lights
+		// scene graph
 	}
 }
    // dom
