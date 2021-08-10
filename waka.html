@@ -139,18 +139,31 @@ var g = {
 
 		// loop, update random translation, render	
 		g.tick = 0;
-		g.mat = 32;
+		g.mat = 4;
 		g.id = window.setInterval(g.frame2, 1000);
 	},
 	"frame2": function() {
 		if (g.tick >= g.mat) {
 			console.log("anim done");
 			window.clearInterval(g.id);
+			window.setTimeout(g.load7, 1000);
 			return;
 		}
 		// update & render
 		tea.nook3();
 		g.tick = g.tick + 1;
+	},
+	"load7": function() {
+		console.log("grid squares");
+
+		// clear scene
+		tea.nook();
+
+		// create grid
+		tea.grid();
+
+		// grid scene
+		tea.grid2();
 	}
 }
 // scene
@@ -412,7 +425,27 @@ var tea = {
 	},
 	"grid2": function() {
 		// lights
-		// scene graph
+		tea.m.e = [];
+		tea.m.e[0] = new THREE.DirectionalLight(0xFFFFFF,1);
+		tea.m.e[0].position.set(0,0,160);
+		tea.m.e[0].target.position.set(0,0,0);
+		tea.m.e[1] = new THREE.DirectionalLight(0xFFFFFF,1);
+		tea.m.e[1].position.set(0,0,-160);
+		tea.m.e[1].target.position.set(0,0,0);
+
+		// scene
+		tea.b.add(tea.m.e[0]);
+		tea.b.add(tea.m.e[1]);
+		tea.b.add(tea.m.e[0].target);
+		tea.b.add(tea.m.e[1].target);
+
+		// tower
+		for (let i = 0; i < tea.m.c; i++) {
+			tea.b.add(tea.m.d[i].a);
+		}
+
+		tea.c.position.set(0,16,32);
+		tea.d.render(tea.b,tea.c);
 	}
 }
    // dom
