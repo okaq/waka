@@ -408,7 +408,7 @@ var tea = {
 		c0[2] = Math.random();
 		let c1 = new THREE.Color(c0[0],c0[1],c0[2]);
 		// geometry
-		let g0 = new THREE.BoxGeometry(1,16,1);
+		let g0 = new THREE.BoxGeometry(2,Math.random()*100,2);
 		// material
 		let m0 = new THREE.MeshPhongMaterial();
 		m0.color = c1;
@@ -420,7 +420,7 @@ var tea = {
 			let b0 = (i / tea.m.a) >>> 0;
 			let a1 = (a0 * tea.m.a) >>> 0;
 			let b1 = (b0 * tea.m.a) >>> 0;
-			tea.m.d[i].a.position.set(a0,0,b0);
+			tea.m.d[i].a.position.set(a1/10,0,b1/10);
 		}
 	},
 	"grid2": function() {
@@ -444,8 +444,10 @@ var tea = {
 			tea.b.add(tea.m.d[i].a);
 		}
 
-		tea.c.position.set(0,16,32);
+		tea.c.position.set(0,50,200);
 		tea.d.render(tea.b,tea.c);
+
+		// shallow view frustrum
 	}
 }
    // dom
