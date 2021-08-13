@@ -107,8 +107,20 @@ var msg = {
 		for (let i = 0; i < msg.b[0].length; i++) {
 			let a0 = msg.b[0][i];
 			let a1 = a0.toUpperCase();
-			console.log(msg.b[0],a0,a1);
+			let b0 = bmp.a[a1];
+			let c0 = meg.canv(b0);
+			console.log(msg.b[0],a0,a1,b0.length);
 		}
+	},
+	"canv": function(b0) {
+		let r0 = [32,32,0,0];
+		let c0 = dom.canvas(r0);
+		// fill bkgd
+		ren.bkgd(c0);
+		// glyph render
+		ren.data(c0,b0);
+		
+		return c0;
 	}
 }
 // scene
@@ -155,6 +167,21 @@ var ren = {
 
 		sce.b.c.con.fillStyle = rgba.css([0,0,0,1.0]);
 		sce.b.c.con.fillRect(0,0,sce.b.c.can.width,sce.b.c.can.height);
+	},
+	"bkgd": function(c0) {
+		c0.con.fillStyle = rgba.css([0,0,0,1.0]);
+		c0.con.fillRect(0,0,c0.can.width,c0.can.height);
+	},
+	"data": function(c0, b0) {
+		c0.con.fillStyle = rgba.css(255,255,255,1.0);
+		for (let i = 0; i < b0.length; i++) {
+			if (b0[i] == 1) {
+				continue;
+			}	
+			let a0 = i % 32;
+			let b0 = (i / 32) >>> 0;
+			c0.con.fillRect(a0,b0,1,1);
+		}
 	}
 }
    // dom
