@@ -86,6 +86,18 @@ var g = {
 		msg.conv();
 	}
 }
+// webgl
+var tea = {
+	"init": function() {
+		// threejs image urls
+
+    		// Create texture for material
+    		// var texture = THREE.ImageUtils.loadTexture( imageData );
+
+    		// Create material
+    		// material = new THREE.MeshPhongMaterial({map: texture});
+	}
+}
 // word
 var msg = {
 	"init": function() {
@@ -108,8 +120,12 @@ var msg = {
 			let a0 = msg.b[0][i];
 			let a1 = a0.toUpperCase();
 			let b0 = bmp.a[a1];
-			let c0 = meg.canv(b0);
+			let c0 = msg.canv(b0);
 			console.log(msg.b[0],a0,a1,b0.length);
+
+			let img0 = c0.can.toDataURL();
+			console.log(img0.length);
+			console.log(img0);
 		}
 	},
 	"canv": function(b0) {
@@ -173,14 +189,14 @@ var ren = {
 		c0.con.fillRect(0,0,c0.can.width,c0.can.height);
 	},
 	"data": function(c0, b0) {
-		c0.con.fillStyle = rgba.css(255,255,255,1.0);
+		c0.con.fillStyle = rgba.css([255,255,255,1.0]);
 		for (let i = 0; i < b0.length; i++) {
-			if (b0[i] == 1) {
+			if (b0 == 1) {
 				continue;
 			}	
 			let a0 = i % 32;
-			let b0 = (i / 32) >>> 0;
-			c0.con.fillRect(a0,b0,1,1);
+			let y0 = (i / 32) >>> 0;
+			c0.con.fillRect(a0,y0,1,1);
 		}
 	}
 }
